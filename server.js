@@ -17,7 +17,6 @@ app.post("/login", async (req, res) => {
       success: true,
       name: session.user.name
     });
-
   } catch (err) {
     res.json({
       success: false,
@@ -26,6 +25,8 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Serveur lancé sur http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Serveur lancé sur port " + PORT);
 });
